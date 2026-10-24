@@ -1,0 +1,35 @@
+{
+  "name": "english-learning-desktop",
+  "version": "1.0.0",
+  "description": "English Learning App for Windows",
+  "author": "Good",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "az.englishlearning.desktop",
+    "productName": "English Learning App",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "package.json"],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "artifactName": "English-Learning-App-Setup.${ext}"
+    },
+    "portable": {
+      "artifactName": "English-Learning-App-Portable.${ext}"
+    }
+  }
+}
